@@ -1,0 +1,36 @@
+//Napisz program, w którym użytkownik podaje 10 liczb zapamiętywanych w tablicy statycznej AA.
+//Program oblicza, ile z tych liczb jest ujemnych i tworzy tablicę dynamiczną BB,
+//w ktorej zapamiętuje te liczby (ujemne). Program wypisuje te liczby oraz informację, ile ich było oraz ile liczb pominęło
+
+
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int AA[10];
+    int* BB = new int[10]; 
+
+    int ujemne = 0;
+
+    for (int i = 0; i < 10; i++) {
+        cout << "Podaj liczbe: ";
+        cin >> AA[i];
+
+        if (AA[i] < 0) {
+            BB[ujemne] = AA[i];
+            ujemne++;
+        }
+    }
+
+    cout << "Liczby ujemne: ";
+    for (int i = 0; i < ujemne; i++) {
+        cout << BB[i] << endl;
+    }
+
+    cout << "Liczba ujemnych liczb: " << ujemne << endl;
+    cout << "Liczba pominietych liczb: " << 10 - ujemne << endl;
+
+    delete[] BB; 
+    return 0;
+}
